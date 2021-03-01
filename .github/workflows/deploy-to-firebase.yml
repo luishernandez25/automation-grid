@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies
         run: cd docker
       - name: Install Dependencies
-        run: docker-compose up -d
+        run: ls
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
