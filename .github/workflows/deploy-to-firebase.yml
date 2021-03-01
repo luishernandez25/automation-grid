@@ -11,12 +11,7 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@main
-      - name: Install Dependencies
-        run: docker pull elgalu/selenium
-      - name: Install Dependencies 2 
-        run: docker pull dosel/zalenium
-      - name: Build
-        run: docker run --rm --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start
+      - name: Build 
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -34,6 +29,10 @@ jobs:
         with:
           name: dist
           path: dist
+      - name: Install Dependencies
+        run: cd docker
+      - name: Install Dependencies
+        run: docker-compose up -d
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
