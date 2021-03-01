@@ -16,7 +16,7 @@ jobs:
       - name: Install Dependencies 2 
         run: docker pull dosel/zalenium
       - name: Build
-        run: docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start
+        run: docker run --rm --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
