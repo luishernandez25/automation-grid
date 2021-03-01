@@ -18,11 +18,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@main
-      - name: Download Artifact
-        uses: actions/download-artifact@master
-        with:
-          name: dist
-          path: dist
       - name: Install Dependencies
         run: cd docker
       - name: Install Dependencies
